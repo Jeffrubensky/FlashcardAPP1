@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:inputType="textMultiLine"
-        android:hint="Enter the question Here" />
+        android:hint="Enter The Question Here" />
 
     <EditText
         android:id="@+id/editTextField1"
@@ -27,7 +27,30 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
         android:inputType="textMultiLine"
-        android:hint="Enter the answer Here" />
+        android:hint="Enter The Answer Here" />
+
+    <EditText
+        android:id="@+id/editTextField2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="10dp"
+        android:inputType="textMultiLine"
+        android:hint="Enter Wrong The Answer Here" />
+
+    <EditText
+        android:id="@+id/editTextField3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:inputType="textMultiLine"
+        android:hint="Enter Another Wrong The Answer Here" />
+
 
 
     <ImageView
