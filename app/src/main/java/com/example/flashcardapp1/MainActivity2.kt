@@ -26,25 +26,25 @@ class MainActivity2 : AppCompatActivity() {
 
         val question = intent.getStringExtra("question")
         val answer = intent.getStringExtra("answer")
-        val option1 = intent.getStringExtra("option1")
-        val option2 = intent.getStringExtra("option2")
+        val wrongAnswer1 = intent.getStringExtra("wrongAnswer1")
+        val wrongAnswer2 = intent.getStringExtra("wrongAnswer2")
 
         // Mettre à jour les EditText avec les données existantes
         editTextField.setText(question)
         editTextField1.setText(answer)
-        editTextField2.setText(option1)
-        editTextField3.setText(option2)
+        editTextField2.setText(wrongAnswer1)
+        editTextField3.setText(wrongAnswer2)
 
 
 
         SaveAnswers.setOnClickListener {
             val question = editTextField.text.toString()
             val answer = editTextField1.text.toString()
-            val option1 = editTextField2.text.toString()
-            val option2 = editTextField3.text.toString()
+            val wrongAnswer1 = editTextField2.text.toString()
+            val wrongAnswer2 = editTextField3.text.toString()
 
 
-            if (question.isBlank() || answer.isBlank() || option1.isBlank() || option2.isBlank()) {
+            if (question.isBlank() || answer.isBlank() || wrongAnswer1.isBlank() || wrongAnswer2.isBlank()) {
                 // Afficher un message d'erreur avec Snackbar si l'un des champs est vide
                 Snackbar.make(findViewById(R.id.icone_save), "Veuillez remplir tous les champs", Snackbar.LENGTH_SHORT).show()
             } else {
@@ -53,8 +53,8 @@ class MainActivity2 : AppCompatActivity() {
                 val data = Intent()
                 data.putExtra("question", question)
                 data.putExtra("answer", answer)
-                data.putExtra("option1", option1)
-                data.putExtra("option2", option2)
+                data.putExtra("wrongAnswer1", wrongAnswer1)
+                data.putExtra("wrongAnswer2", wrongAnswer2)
                 setResult(Activity.RESULT_OK, data)
                 finish()
             }
