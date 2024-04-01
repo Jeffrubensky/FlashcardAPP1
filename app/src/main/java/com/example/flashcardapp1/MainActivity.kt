@@ -49,30 +49,27 @@ class MainActivity : AppCompatActivity() {
             if (allFlashcards.isNotEmpty()) {
                 // Afficher la carte précédente (si disponible)
                 currentCardDisplayedIndex = max(0, currentCardDisplayedIndex - 1)
-                val (question, answer) = allFlashcards[currentCardDisplayedIndex]
+                val (question, answer, wrongAnswer1, wrongAnswer2) = allFlashcards[currentCardDisplayedIndex]
                 flashcard_question.text = question
                 flashcard_reponse.text = answer
+                flashcard_reponse2.text = wrongAnswer1
+                flashcard_reponse3.text = wrongAnswer2
             } else {
                 // S'il n'y a plus de cartes, afficher un état vide
                 flashcard_question.text = ""
                 flashcard_reponse.text = ""
+                flashcard_reponse2.text = ""
+                flashcard_reponse3.text = ""
             }
         }
-
-
-
         NextButton.setOnClickListener {
             if (allFlashcards.isEmpty()) {
                 return@setOnClickListener  // Il n'y a pas de cartes à afficher
             }
 
-            currentCardDisplayedIndex++
-            
-            if (currentCardDisplayedIndex >= allFlashcards.size) {
-                currentCardDisplayedIndex = 0  // Revenir à la première carte si nous avons atteint la fin
-            }
+            currentCardDisplayedIndex = getRandom(0, allFlashcards.size - 1)
 
-            val (question, answer,wrongAnswer1,wrongAnswer2) = allFlashcards[currentCardDisplayedIndex]
+            val (question, answer, wrongAnswer1, wrongAnswer2) = allFlashcards[currentCardDisplayedIndex]
 
             // Mettre à jour les TextViews avec la nouvelle carte
             flashcard_question.text = question
@@ -80,6 +77,10 @@ class MainActivity : AppCompatActivity() {
             flashcard_reponse2.text = wrongAnswer1
             flashcard_reponse3.text = wrongAnswer2
         }
+
+
+
+        
 
 
             val resultLauncher =
@@ -153,7 +154,10 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+    fun getRandom(minNumber: Int, maxNumber: Int): Int {
+        return (minNumber..maxNumber).random()
     }
+}
 
 
 
